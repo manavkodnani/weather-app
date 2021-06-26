@@ -14,3 +14,12 @@
 
     Frontend application will start running on port 3000
 
+# Testing the frontend application
+
+1. Open a new terminal, move to client directory and write the test script to initiate tests
+   - cd client
+   - npm test
+
+2. To run test coverage (100 % test coverage), run the test coverage script
+   - npm run test:coverage
+
