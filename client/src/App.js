@@ -16,13 +16,12 @@ const App = () => {
         if (!(data?.error)) {
           setWeatherData(data);
         } else {
-          setWeatherData(data?.error);
-          setIsError(true);
+          throw new Error(data?.error);
         }
         setLoading(false);
       })
       .catch((error) => {
-        setWeatherData(error?.error);
+        setWeatherData(error?.message);
         setIsError(true);
         setLoading(false);
       });
@@ -38,11 +37,11 @@ const App = () => {
       {loading ? <img src="/weather-loader.gif" alt="Loading" className="loader" /> :
         <>
           <div className='search-container'>
-            <input type="search" placeholder="Enter Place" value={address} autoFocus onChange={(e) => setAddress(e.target.value)} />
-            <button onClick={handleSearchWeather} disabled={isBlankString(address)}><img src="/search.png" alt="Search"></img></button>
+            <input type="search" aria-label="address-input" placeholder="Enter Place" value={address} autoFocus onChange={(e) => setAddress(e.target.value)} />
+            <button onClick={handleSearchWeather} aria-label="search-btn" disabled={isBlankString(address)}><img src="/search.png" alt="Search"></img></button>
           </div>
-          {isError ? <div className="weather-body">{weatherData}</div> :
-            <div className="weather-body">
+          {isError ? <div className="weather-body" aria-label="error-weather">{weatherData}</div> :
+            <div className="weather-body" aria-label="weather-forecast">
               <div>{weatherData?.location}</div>
               <div className="forecast">{weatherData?.forecast}</div>
             </div>}
