@@ -8,9 +8,9 @@
 
    Backend server will start on port 3001
 
-2. Open a new terminal and start the frontend server by first going into the frontend project directory and then starting the server
-  - cd client
-  - npm start
+2. Open a new terminal and start the frontend server by first going into the frontend project directory and then starting the server.
+    - cd client
+    - npm start
 
-  Frontend application will start running on port 3000
+    Frontend application will start running on port 3000
 
